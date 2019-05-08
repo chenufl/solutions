@@ -1,0 +1,17 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function removeDuplicates(&$nums) {
+        for ($i = 0; $i < count($nums); $i++) {
+            if ($nums[$i] === $nums[$i + 1]) {
+                unset($nums[$i]);
+                $i--;
+                $nums = array_values($nums);
+            }
+        }
+    }
+}
+//needs improvement.
