@@ -1,0 +1,21 @@
+class Solution {
+
+    /**
+     * @param String $s
+     * @return Boolean
+     */
+    function isValid($s) {
+        for ($i = 0; $i < strlen($s); $i++) {
+            if (($s[$i] == ')' && $s[$i-1] == '(') ||
+                ($s[$i] == '}' && $s[$i-1] == '{') ||
+                ($s[$i] == ']' && $s[$i-1] == '[')
+               ) 
+            {
+            $temp = substr($s,0,$i-1);
+            $s = $temp . substr($s, $i+1);
+            $i -= 2;
+            }
+        }
+        return strlen($s) == 0;
+    }
+}
