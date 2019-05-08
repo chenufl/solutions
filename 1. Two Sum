@@ -1,0 +1,19 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
+     */
+    
+    function twoSum($nums, $target) {
+        $partB = [];
+        foreach ($nums as $key => $value) {
+            if (in_array($value, $partB)) {
+                return [array_search($value, $partB), $key];
+            }
+            $partB[] = $target - $value; 
+        }
+        return [];
+    }
+}
