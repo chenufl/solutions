@@ -1,0 +1,25 @@
+class Solution {
+
+    /**
+     * @param Integer $x
+     * @return Boolean
+     */
+    function isPalindrome($x) {
+        if ($x < 0) return false;
+        $div = 1;
+        while ($x/$div >= 10) {
+            $div *= 10;
+        }
+        while ($x != 0) {
+            $left = intval($x/$div);
+            $right = $x%10;
+            if ($left != $right) {
+                return false;
+            }
+            $reminder = $x%$div;
+            $x = intval($reminder/10);
+            $div /= 100;
+        }
+        return true;
+    }
+}
