@@ -1,0 +1,27 @@
+class Solution {
+
+    /**
+     * @param Integer $n
+     * @return String
+     */
+    function countAndSay($n) {
+        if ($n < 1 || $n >30) {
+            return false;
+        }
+        $x = "1";
+        for ($i = 1; $i <= $n; $i++) {
+            if ($i == $n) return $x;
+            $temp = "";
+            $count = 1;
+            for ($j = 0; $j < strlen($x); $j++) {
+                if ($x[$j] != $x[$j+1]) {
+                    $temp = $temp . $count. $x[$j];
+                    $count = 1;
+                } else {
+                    $count ++;
+                }
+            }
+            $x = $temp;
+        }
+    }
+}
